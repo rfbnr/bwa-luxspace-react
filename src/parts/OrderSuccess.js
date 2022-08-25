@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Success() {
+export default function OrderSuccess() {
   return (
     <section className="">
       <div className="container mx-auto min-h-screen">

@@ -3,7 +3,7 @@ import "assets/css/app.css";
 import HomePage from "pages/HomePage";
 import DetailsPage from "pages/DetailsPage";
 import CartPage from "pages/CartPage";
-import SuccessPage from "pages/SuccessPage";
+import SuccessOrderPage from "pages/SuccessOrderPage";
 import NotFoundPage from "pages/NotFoundPage";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="categories/:idc" element={<DetailsPage />} />
         <Route path="cart" element={<CartPage />} />
-        <Route path="success" element={<SuccessPage />} />
+        <Route path="success-order" element={<SuccessOrderPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>

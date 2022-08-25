@@ -2,13 +2,13 @@ import React from "react";
 import Header from "parts/Header";
 import Sitemap from "parts/Sitemap";
 import Footer from "parts/Footer";
-import Success from "parts/Success";
+import OrderSuccess from "parts/OrderSuccess";
 
-export default function SuccessPage() {
+export default function SuccessOrderPage() {
   return (
     <>
       <Header theme="black" position="relative" />
-      <Success />
+      <OrderSuccess />
       <Sitemap borderT={true} />
       <Footer />
     </>
