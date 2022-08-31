@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="categories/:idc" element={<DetailsPage />} />
+        <Route path="categories/:idc/products/:id" element={<DetailsPage />} />
         <Route path="cart" element={<CartPage />} />
         <Route path="success-order" element={<SuccessOrderPage />} />
         <Route path="*" element={<NotFoundPage />} />
