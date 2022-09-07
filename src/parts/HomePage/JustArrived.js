@@ -18,13 +18,7 @@ export default function JustArrived() {
       .fill()
       .map((_, index) => {
         return (
-          <div
-            className="px-4 relative card group"
-            key={index}
-            style={{
-              paddingLeft:
-                refContainer.current?.getBoundingClientRect?.()?.left - 16 || 0,
-            }}>
+          <div className="px-4 relative card group" key={index}>
             <div
               className="bg-gray-400 rounded-xl overflow-hidden card-shadow relative"
               style={{ width: 287, height: 386 }}></div>
@@ -50,7 +44,14 @@ export default function JustArrived() {
         {/* <!-- <div className="overflow-hidden z-10"> --> */}
 
         {isLoading ? (
-          <div className="flex -mx-4 flex-row relative">{<Loading />}</div>
+          <div
+            className="flex -mx-4 flex-row relative"
+            style={{
+              paddingLeft:
+                refContainer.current?.getBoundingClientRect?.()?.left - 16 || 0,
+            }}>
+            {<Loading />}
+          </div>
         ) : error ? (
           JSON.stringify(error)
         ) : data.data.length === 0 ? (
@@ -86,7 +87,7 @@ export default function JustArrived() {
                   <h5 className="text-lg font-semibold mt-4">{item.title}</h5>
                   <span className="">IDR {item.price}</span>
                   <Link
-                    to={`/categories/${item.idc}/products/${item.id}`}
+                    to={`/details/products/${item.id}`}
                     className="stretched-link">
                     {/* <!-- fake children --> */}
                   </Link>

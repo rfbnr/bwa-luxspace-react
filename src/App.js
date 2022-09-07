@@ -8,15 +8,13 @@ import NotFoundPage from "pages/NotFoundPage";
 
 function App() {
   return (
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="categories/:idc/products/:id" element={<DetailsPage />} />
-        <Route path="cart" element={<CartPage />} />
-        <Route path="success-order" element={<SuccessOrderPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="details/products/:idp" element={<DetailsPage />} />
+      <Route path="cart" element={<CartPage />} />
+      <Route path="success-order" element={<SuccessOrderPage />} />
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
   );
 }
 
