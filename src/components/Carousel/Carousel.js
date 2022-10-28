@@ -78,7 +78,6 @@ export default function Carousel({ children, refContainer }) {
     (e) => {
       e = e || window.event;
       e.preventDefault();
-      // console.log(e);
 
       if (e.type === "touchmove") {
         posX2.current = posX1.current - e.touches[0].clientX;
@@ -99,7 +98,6 @@ export default function Carousel({ children, refContainer }) {
     (e) => {
       e = e || window.event;
       e.preventDefault();
-      // console.log(e);
 
       posFinal.current = refDragHandler.current.offsetLeft;
 
@@ -121,7 +119,6 @@ export default function Carousel({ children, refContainer }) {
     (e) => {
       e = e || window.event;
       e.preventDefault();
-      // console.log(e);
 
       posInitial.current = refDragHandler.current.offsetLeft;
 

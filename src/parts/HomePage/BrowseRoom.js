@@ -1,57 +1,8 @@
 import React, { useEffect } from "react";
 import useAsync from "helpers/hooks/useAsync";
 import fetchData from "helpers/fetch/fetchData";
-
-function Loading({ ratio = {} }) {
-  const dummy = [
-    {
-      id: 1,
-      ratio: {
-        default: "1/9",
-        md: "1/4",
-      },
-    },
-    {
-      id: 2,
-      ratio: {
-        default: "1/9",
-        md: "2/2",
-      },
-    },
-    {
-      id: 3,
-      ratio: {
-        default: "1/9",
-        md: "2/3",
-      },
-    },
-    {
-      id: 4,
-      ratio: {
-        default: "1/9",
-        md: "1/4",
-      },
-    },
-  ];
-
-  return dummy.map((item, index) => {
-    return (
-      <div
-        key={item.id}
-        className={`relative card ${
-          ratio?.wrapper.default?.[item.ratio.default]
-        } ${ratio?.wrapper.md?.[item.ratio.md]}`}
-        style={{ height: index === 0 ? 180 : "auto" }}>
-        <div className="bg-gray-400 rounded-xl w-full h-full">
-          <div className={`overlay ${ratio.meta?.[item.ratio.md]}`}>
-            <div className="w-24 h-3 bg-gray-200 mt-3 rounded-full"></div>
-            <div className="w-36 h-3 bg-gray-200 mt-2 rounded-full"></div>
-          </div>
-        </div>
-      </div>
-    );
-  });
-}
+import "helpers/format/thousand";
+import LoadingBrowseRoom from "./LoadingBrowseRoom";
 
 export default function BrowseRoom() {
   const { data, run, isLoading } = useAsync();
@@ -94,7 +45,7 @@ export default function BrowseRoom() {
         </div>
         <div className="grid grid-rows-2 grid-cols-9 gap-4">
           {isLoading ? (
-            <Loading ratio={ratioClassName} />
+            <LoadingBrowseRoom ratio={ratioClassName} />
           ) : (
             data.data.map((item, index) => {
               return (
@@ -117,7 +68,8 @@ export default function BrowseRoom() {
                     }`}>
                     <h5 className="text-lg font-semibold">{item.title}</h5>
                     <span className="">
-                      {item.products} {item.products > 1 ? "items" : "item"}
+                      {item.products.thousand()}{" "}
+                      {item.products > 1 ? "items" : "item"}
                     </span>
                   </div>
                 </div>

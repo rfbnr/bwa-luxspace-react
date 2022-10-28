@@ -10,11 +10,15 @@ import fetchData from "helpers/fetch/fetchData";
 import { useParams } from "react-router-dom";
 import LoadingProductDetail from "parts/DetailsPage/LoadingProductDetail";
 import LoadingSuggestion from "parts/DetailsPage/LoadingSuggestion";
+import useScrollToTop from "helpers/hooks/useScrollToTop";
+import NotFoundMessage from "parts/NotFoundMessage";
 
 export default function DetailsPage() {
+  useScrollToTop();
+
   const { idp } = useParams();
 
-  const { data, run, isLoading } = useAsync();
+  const { error, data, run, isLoading, isError } = useAsync();
 
   useEffect(() => {
     run(fetchData({ url: `/api/products/${idp}` }));
@@ -31,12 +35,20 @@ export default function DetailsPage() {
         ]}
       />
 
-      {isLoading ? <LoadingProductDetail /> : <ProductDetail data={data} />}
-
-      {isLoading ? (
-        <LoadingSuggestion />
+      {isError ? (
+        <NotFoundMessage
+          title="Product Not Found"
+          desc={error.errors.message}
+        />
       ) : (
-        <Suggestion data={data?.relatedProducts || {}} />
+        <>
+          {isLoading ? <LoadingProductDetail /> : <ProductDetail data={data} />}
+          {isLoading ? (
+            <LoadingSuggestion />
+          ) : (
+            <Suggestion data={data?.relatedProducts || {}} />
+          )}
+        </>
       )}
 
       <Sitemap borderT={false} />

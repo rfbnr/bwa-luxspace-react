@@ -8,9 +8,11 @@ import Sitemap from "parts/Sitemap";
 import Footer from "parts/Footer";
 import useScrollAnchor from "helpers/hooks/useScrollAnchor";
 import useModalDom from "helpers/hooks/useModalDom";
+import useScrollToTop from "helpers/hooks/useScrollToTop";
 
 export default function HomePage() {
   useScrollAnchor();
+  useScrollToTop();
   useModalDom();
 
   return (

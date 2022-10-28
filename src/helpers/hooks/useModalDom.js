@@ -22,7 +22,7 @@ export default function useModalDom() {
       modalContent.innerHTML =
         element.target.attributes?.["data-content"].value;
 
-      addClass(modalContent, "bg-white p-0 md:p-6 z-10");
+      addClass(modalContent, "bg-white p-0 md:p-6 z-10 rounded-xl");
 
       modalWrapper.append(modalOverlay);
       modalWrapper.append(modalContent);

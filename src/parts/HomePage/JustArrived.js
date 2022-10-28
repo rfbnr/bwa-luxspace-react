@@ -3,6 +3,7 @@ import useAsync from "helpers/hooks/useAsync";
 import fetchData from "helpers/fetch/fetchData";
 import { Link } from "react-router-dom";
 import Carousel from "components/Carousel/Carousel";
+import "helpers/format/currency";
 
 export default function JustArrived() {
   const { data, error, run, isLoading } = useAsync();
@@ -41,7 +42,6 @@ export default function JustArrived() {
       </div>
       <div className="overflow-x-hidden px-4" id="carousel">
         <div className="container mx-auto" ref={refContainer}></div>
-        {/* <!-- <div className="overflow-hidden z-10"> --> */}
 
         {isLoading ? (
           <div
@@ -85,7 +85,7 @@ export default function JustArrived() {
                     />
                   </div>
                   <h5 className="text-lg font-semibold mt-4">{item.title}</h5>
-                  <span className="">IDR {item.price}</span>
+                  <span className="">{item.price.currency()}</span>
                   <Link
                     to={`/details/products/${item.id}`}
                     className="stretched-link">
@@ -96,7 +96,6 @@ export default function JustArrived() {
             })}
           </Carousel>
         )}
-        {/* <!-- </div> --> */}
       </div>
     </section>
   );

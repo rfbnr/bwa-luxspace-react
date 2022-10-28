@@ -5,8 +5,11 @@ import Sitemap from "parts/Sitemap";
 import Footer from "parts/Footer";
 import ShoppingCart from "parts/CartPage/ShoppingCart";
 import ShippingDetails from "parts/CartPage/ShippingDetails";
+import useScrollToTop from "helpers/hooks/useScrollToTop";
 
 export default function CartPage() {
+  useScrollToTop();
+
   return (
     <>
       <Header theme="black" position="relative" />
