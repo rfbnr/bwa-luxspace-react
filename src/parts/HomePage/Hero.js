@@ -9,7 +9,7 @@ export default function Hero() {
           You've Dreaming
         </h1>
         <h2 className="px-8 text-base md:px-0 md:text-lg my-6 tracking-wide">
-          Kami menyediakan furniture berkelas yang
+          Kami menyediakan furniture berkelas yang{" "}
           <br className="hidden lg:block" />
           membuat ruangan terasa homey
         </h2>

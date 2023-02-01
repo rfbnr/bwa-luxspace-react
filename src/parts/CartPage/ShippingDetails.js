@@ -5,6 +5,7 @@ import { useGlobalContext } from "helpers/hooks/useGlobalContext";
 import React from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export default function ShippingDetails() {
   const nav = useNavigate();
@@ -51,7 +52,11 @@ export default function ShippingDetails() {
           nav("/success-order");
         }
       } else {
-        alert("Oops sorry, Your cart is empty");
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Sorry, Your cart is empty",
+        });
       }
     } catch (error) {
       console.log(error);
